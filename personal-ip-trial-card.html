@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人 IP 试作卡</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@1,400;1,700&family=Caveat:wght@400;700&family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #2F6FDB;
+      --blue-deep: #1D4FA5;
+      --yellow: #F4D758;
+      --yellow-soft: #FFF4C8;
+      --red: #E86A5A;
+      --cream: #FEFCF6;
+      --cream-deep: #FAF4E1;
+      --ink: #1A1A2E;
+      --ink-light: #4C4C5C;
+      --line: rgba(26, 26, 46, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 18% 14%, rgba(244, 215, 88, 0.18), transparent 22%),
+        radial-gradient(circle at 80% 78%, rgba(47, 111, 219, 0.10), transparent 18%),
+        linear-gradient(180deg, #fffdf8 0%, #fbf7ec 100%);
+      color: var(--ink);
+      font-family: 'Noto Sans SC', -apple-system, 'PingFang SC', 'Helvetica Neue', sans-serif;
+    }
+
+    .card {
+      width: 1080px;
+      height: 1440px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, var(--cream) 0%, #fffef9 100%);
+      border: 28px solid var(--yellow);
+      box-shadow: 0 28px 80px rgba(26, 26, 46, 0.12);
+    }
+
+    .top-strip {
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 10px;
+      background: linear-gradient(90deg, var(--blue) 0 56%, var(--yellow) 56% 79%, var(--red) 79% 100%);
+    }
+
+    .doodle {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.92;
+    }
+
+    .doodle span {
+      position: absolute;
+      border-radius: 999px;
+      border: 4px solid rgba(47, 111, 219, 0.55);
+      transform: rotate(-12deg);
+    }
+
+    .doodle .d1 { width: 142px; height: 54px; left: 76px; top: 182px; }
+    .doodle .d2 { width: 120px; height: 48px; right: 92px; top: 206px; transform: rotate(18deg); }
+    .doodle .d3 { width: 180px; height: 72px; left: 80px; bottom: 210px; transform: rotate(22deg); border-color: rgba(232, 106, 90, 0.58); }
+    .doodle .d4 { width: 148px; height: 58px; right: 88px; bottom: 188px; transform: rotate(-20deg); border-color: rgba(244, 215, 88, 0.9); }
+    .doodle .sq1 {
+      width: 34px;
+      height: 34px;
+      border: 4px solid rgba(47, 111, 219, 0.45);
+      border-radius: 12px;
+      left: 94px;
+      top: 760px;
+      transform: rotate(14deg);
+    }
+    .doodle .sq2 {
+      width: 22px;
+      height: 22px;
+      border: 4px solid rgba(232, 106, 90, 0.52);
+      border-radius: 50%;
+      right: 126px;
+      top: 828px;
+    }
+
+    .content {
+      position: relative;
+      height: 100%;
+      padding: 92px 88px 84px;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      gap: 36px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      width: fit-content;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: var(--yellow);
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 18px 0 0 var(--blue);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .title {
+      margin: 18px 0 20px;
+      font-family: 'Noto Serif SC', serif;
+      font-size: 86px;
+      line-height: 1.08;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      max-width: 7.3ch;
+    }
+
+    .title .accent {
+      color: var(--blue);
+      background: linear-gradient(180deg, transparent 58%, rgba(244, 215, 88, 0.88) 58%);
+      padding: 0 8px;
+      border-radius: 10px;
+    }
+
+    .subtitle {
+      max-width: 560px;
+      font-size: 24px;
+      line-height: 1.65;
+      color: var(--ink-light);
+      margin: 0 0 34px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: #fff;
+      border: 2px solid rgba(26, 26, 46, 0.08);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ink);
+      box-shadow: 0 6px 18px rgba(26, 26, 46, 0.05);
+    }
+
+    .tag::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 16px 0 0 var(--yellow), 32px 0 0 var(--red);
+    }
+
+    .portrait {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 18px;
+    }
+
+    .avatar-wrap {
+      width: 360px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #fff 0%, #fffdf4 100%);
+      border: 8px solid #fff;
+      box-shadow: 0 14px 32px rgba(26, 26, 46, 0.08);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .avatar-wrap::after {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border-radius: 50%;
+      border: 4px dashed rgba(47, 111, 219, 0.16);
+    }
+
+    .avatar-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .section {
+      background: rgba(255, 255, 255, 0.78);
+      border: 2px solid rgba(26, 26, 46, 0.07);
+      border-radius: 24px;
+      padding: 30px 32px;
+      box-shadow: 0 10px 24px rgba(26, 26, 46, 0.04);
+    }
+
+    .section-title {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-family: 'Noto Serif SC', serif;
+      font-size: 30px;
+      line-height: 1.2;
+      font-weight: 900;
+    }
+
+    .section-title span {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      color: var(--blue);
+      font-size: 20px;
+      opacity: 0.65;
+    }
+
+    .rules {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .rule {
+      min-height: 168px;
+      padding: 20px 18px 18px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #fff 0%, #fffdf7 100%);
+      border: 2px solid rgba(26, 26, 46, 0.06);
+    }
+
+    .rule .num {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 44px;
+      color: var(--blue);
+      line-height: 1;
+      opacity: 0.22;
+      margin-bottom: 10px;
+    }
+
+    .rule h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      line-height: 1.2;
+      font-weight: 800;
+    }
+
+    .rule p {
+      margin: 0;
+      color: var(--ink-light);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    .footer-note {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+      align-items: end;
+    }
+
+    .note {
+      padding: 24px 28px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, var(--yellow-soft), #fffdf7);
+      border: 2px solid rgba(244, 215, 88, 0.65);
+    }
+
+    .note .label {
+      margin-bottom: 12px;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--red);
+    }
+
+    .note p {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.7;
+      color: var(--ink);
+      max-width: 26ch;
+    }
+
+    .quote {
+      align-self: stretch;
+      padding: 24px 28px;
+      border-radius: 22px;
+      background: var(--blue);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quote::before {
+      content: "“";
+      position: absolute;
+      top: -8px;
+      right: 18px;
+      font-family: 'Fraunces', serif;
+      font-size: 132px;
+      line-height: 1;
+      opacity: 0.12;
+    }
+
+    .quote .small {
+      font-family: 'Caveat', cursive;
+      font-size: 34px;
+      margin-bottom: 8px;
+    }
+
+    .quote .big {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 26px;
+      line-height: 1.52;
+      font-weight: 900;
+      margin: 0;
+      max-width: 14ch;
+    }
+  </style>
+</head>
+<body>
+  <article class="card" aria-label="个人 IP 试作卡">
+    <div class="top-strip"></div>
+    <div class="doodle" aria-hidden="true">
+      <span class="d1"></span>
+      <span class="d2"></span>
+      <span class="d3"></span>
+      <span class="d4"></span>
+      <span class="sq1"></span>
+      <span class="sq2"></span>
+    </div>
+
+    <div class="content">
+      <div class="eyebrow">Personal IP / Trial Card</div>
+
+      <section class="hero">
+        <div>
+          <h1 class="title">把<em class="accent">审美</em>写成规则</h1>
+          <p class="subtitle">
+            这不是一个通用模板，而是一个有头像、有颜色、有气质的个人 IP 系统。
+            目标很简单：让人一眼看出这是你。
+          </p>
+          <div class="tag-row">
+            <span class="tag">日系蜡笔感</span>
+            <span class="tag">蓝黄红三色</span>
+            <span class="tag">知识型创作者</span>
+          </div>
+        </div>
+
+        <div class="portrait">
+          <div class="avatar-wrap">
+            <img src="assets/avatar.jpg" alt="个人 IP 头像">
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-title">
+          <h2>固定住的三件事</h2>
+          <span>01</span>
+        </div>
+        <div class="rules">
+          <div class="rule">
+            <div class="num">01</div>
+            <h3>头像不漂移</h3>
+            <p>细边眼镜、蓝黑短发、温和表情、黄底贴纸感，作为每次生成的锚点。</p>
+          </div>
+          <div class="rule">
+            <div class="num">02</div>
+            <h3>颜色不乱跑</h3>
+            <p>蓝负责主线条，黄负责高亮，红只做点睛，不让页面变成别的风格。</p>
+          </div>
+          <div class="rule">
+            <div class="num">03</div>
+            <h3>气质不变味</h3>
+            <p>保留手绘、留白、贴纸边和轻知识感，避免通用模板味。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="footer-note">
+        <div class="note">
+          <div class="label">Design rule</div>
+          <p>以后所有页面，先看头像，再看颜色，再看文字节奏。</p>
+        </div>
+        <div class="quote">
+          <div class="small">fixed by design</div>
+          <p class="big">文件只是规则的载体，审美判断才是核心。</p>
+        </div>
+      </section>
+    </div>
+  </article>
+</body>
+</html>

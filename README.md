@@ -1,6 +1,6 @@
-# Esther's Design Skill
+# 个人 IP Design Skill
 
-一套给 AI 看的个人品牌设计系统。
+一套给 AI 看的个人 IP 设计系统。
 
 把审美写成操作手册,AI 每次帮我做页面时必须翻这本手册,不能自由发挥。**限制 AI 的自由度 = 保证输出质量。**
 
@@ -164,7 +164,7 @@ AI 每次做设计必须按这个顺序走:
 
 ## 怎么用
 
-发这个链接给你的 AI Agent(推荐使用 [Cola](https://colaos.ai)):
+发这个链接给你的 AI Agent:
 
 ```
 https://github.com/esthersjw/esther-design-system
@@ -180,8 +180,8 @@ https://github.com/esthersjw/esther-design-system
 
 ## 关于
 
-Made by **Esther不二** - 在 AI 时代认真生活的女生
+Made for **你的个人 IP**
 
-这套设计系统由 [Cola](https://colaos.ai) 协助构建。Cola 是首个有灵魂的操作系统。
+这套设计系统由你自己的头像、色彩和审美决策驱动。
 
 灵感来源:归藏 op7418 的 PPT Design Skill
