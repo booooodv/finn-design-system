@@ -63,7 +63,7 @@
 - 大标题（84px）用汇文明朝体（Huiwen Mincho），关键词用蓝色高亮块（`background: #2B7FD8; color: #fff; padding: 4px 16px; border-radius: 6px`）
 - 副标题（44px）一行显示，紧跟标题下方，`white-space: nowrap`
 - 圆形头像（`avatar.jpg`，120px，`border: 4px solid #F4D758`）
-- 署名「Esther不二」44px + 介绍34px
+- 署名「Finn」44px + 介绍34px
 - 整体边框：`border: 28px solid #F4D758`
 - 背景加浅色网格质感（`background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px); background-size: 40px 40px`）
 - 中间留白区域给用户放效果图/截图
@@ -75,8 +75,8 @@
 
 ### 最后一页 尾页
 - 金句（oversized引号装饰 `"` ，Fraunces 200px，opacity 0.15）
-- 圆形头像 + 署名「Esther不二」
-- CTA：「关注 Esther不二」
+- 圆形头像 + 署名「Finn」
+- CTA：「关注 Finn」
 - 一行小字：`AI时代的个人品牌实验 | 用AI让生活变好`
 - 底部品牌三色装饰条
 
@@ -103,7 +103,7 @@
 
 - 所有颜色、字体、禁忌遵守 `brand-dna.md`
 - 头像文件：`assets/avatar.jpg`
-- 署名固定为：「Esther不二」
+- 署名固定为：「Finn」
 - 品牌三色比例：蓝6 : 黄3 : 红1
 - 背景主色：奶白 `#fefcf6` / 深奶 `#faf6eb`，深色面板用 `#1A1A2E`
 
@@ -116,7 +116,7 @@
 - [ ] 每页是否撑满画面（内容占满1080×1440，有呼吸感但不留大片空白）
 - [ ] 页面之间排版是否有变化（不能连续3页同一layout）
 - [ ] 品牌三色比例 6:3:1
-- [ ] 头像和署名是否正确（圆形头像+「Esther不二」）
+- [ ] 头像和署名是否正确（圆形头像+「Finn」）
 - [ ] 导出按钮是否工作（html2canvas本地文件 + JSZip CDN、exportAll打包zip一次性下载）
 - [ ] 卡片是否居中显示（transform-origin: top center）
 - [ ] 用localhost打开测试导出（file://协议下js加载受限）

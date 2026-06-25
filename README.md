@@ -1,6 +1,6 @@
-# 个人 IP Design Skill
+# Finn Design System
 
-一套给 AI 看的个人 IP 设计系统。
+一套给 AI 看的 Finn 个人 IP 设计系统。
 
 把审美写成操作手册,AI 每次帮我做页面时必须翻这本手册,不能自由发挥。**限制 AI 的自由度 = 保证输出质量。**
 
@@ -8,13 +8,13 @@
 
 ## Demo
 
-用这套系统生成的真实页面:
+用这套系统生成的本地示例:
 
 ### 📖 教程型 - 分享会页面
 
 信息清晰、步骤明确、有节奏的单页科普/教程。
 
-🔗 [在线预览](https://esthersjw.github.io/cola-ob-sharing/cola-ob-sharing.html)
+本地文件：`assets/template-tutorial.html`
 
 ---
 
@@ -22,7 +22,7 @@
 
 视觉冲击、深浅面板交替、强节奏感的活动邀请页。
 
-🔗 [在线预览](https://esthersjw.github.io/esther-design-system/demo-landing.html)
+本地文件：`demo-landing.html`
 
 ---
 
@@ -30,7 +30,7 @@
 
 功能优先、交互感、信息密度高的应用型页面。
 
-🔗 [在线预览](https://hiesther.me/tutorials/personal-dashboard/)
+本地文件：`assets/template-app.html`
 
 ---
 
@@ -38,7 +38,13 @@
 
 3:4 比例、字大、手机可读、一键导出 PNG 的图文卡片。
 
-🔗 [在线预览](https://hiesther.me/tutorials/esther-design-system/demo-readme-cards.html)
+本地文件：`assets/template-cards.html`
+
+### 🪪 Finn 个人 IP 试作卡
+
+基于当前头像、蓝黄红三色和蜡笔贴纸感生成的 3:4 示例卡。
+
+本地文件：`personal-ip-trial-card.html`
 
 ---
 
@@ -62,7 +68,7 @@ assets/template-*.html(起点 - 从模板改,不从零写)
 ## 文件结构
 
 ```
-esther-design-system/
+finn-design-system/
 ├── SKILL.md                    ← 7步工作流(大脑)
 ├── brand-dna.md                ← 品牌基因:颜色/字体/气质/禁忌
 ├── assets/                     ← 模板骨架(起点)
@@ -106,9 +112,9 @@ AI 每次做设计必须按这个顺序走:
 
 | 颜色 | 色值 | 比例 | 对应 |
 |------|------|------|------|
-| 蓝 | `#2B7FD8` | 60% | 头发 |
-| 黄 | `#F4D758` | 30% | 裙子 |
-| 红 | `#E84A5F` | 10% | 蝴蝶结/鞋 |
+| 蓝 | `#2F6FDB` | 60% | 头发 / 主线条 |
+| 黄 | `#F4D758` | 30% | 背景 / 高亮 |
+| 红 | `#E86A5A` | 10% | 点缀 |
 
 ### 字体
 
@@ -122,7 +128,7 @@ AI 每次做设计必须按这个顺序走:
 
 ### 气质关键词
 
-可爱但有品质 · 手绘蜡笔感 · 有温度 · **不像 AI** · 一看就是"不二的"
+温和但有辨识度 · 手绘蜡笔感 · 有温度 · **不像 AI** · 一看就是 Finn 的
 
 ### 禁忌
 
@@ -134,7 +140,7 @@ AI 每次做设计必须按这个顺序走:
 
 30+ 经过验证的可复用组件，每个都是写好的 HTML+CSS 代码，AI 直接复制使用：
 
-🔗 [组件库全览](https://hiesther.me/tutorials/esther-design-system/components-preview.html)
+组件规范见 `references/components.md`。
 
 **卡片** — 杂志裁切 / 编号主导 / 标签主导 / 侧边Icon / 引用块风格
 
@@ -167,7 +173,7 @@ AI 每次做设计必须按这个顺序走:
 发这个链接给你的 AI Agent:
 
 ```
-https://github.com/esthersjw/esther-design-system
+https://github.com/booooodv/finn-design-system
 ```
 
 然后跟它说:
@@ -180,7 +186,7 @@ https://github.com/esthersjw/esther-design-system
 
 ## 关于
 
-Made for **你的个人 IP**
+Made for **Finn**
 
 这套设计系统由你自己的头像、色彩和审美决策驱动。
 
